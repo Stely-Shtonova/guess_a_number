@@ -24,18 +24,6 @@ while True:
         continue
     else:
         attempts_count += 1
-        # checking if the attempts are over the limit
-    if attempts_count > 3:
-        print(Purple + f'You lost- you have no more tries left. The number was {computers_number}. Would you like to play again?')
-        answer = input(Orange + 'Answer with [yes] or [no]: ')
-        if answer.lower() == 'yes':
-            attempts_count = 0
-            continue
-        elif answer.lower() == 'no':
-            print(Blue + 'Thanks for playing...')
-            raise SystemExit
-        else:
-            print(Red + 'Invalid input!')
     # comparing numbers
     if int(your_guess) == computers_number:
         print(Magenta + 'Congratulations! The computer chose the number ' + \
@@ -47,9 +35,21 @@ while True:
         # dropping hints
         if int(your_guess) > computers_number:
             print(Purple + 'Try with a smaller number...')
-            continue
         elif int(your_guess) < computers_number:
             print(Purple + 'Try with a bigger number...')
+    # checking if the attempts are over the limit
+    while attempts_count == 3:
+        # prompting the user to play again
+        print(Purple + f'You lost- you have no more tries left. The number was {computers_number}. Would you like to play again?')
+        answer = input(Orange + 'Answer with [yes] or [no]: ')
+        if answer.lower() == 'yes':
+            attempts_count = 0
+            break
+        elif answer.lower() == 'no':
+            print(Blue + 'Thanks for playing...')
+            raise SystemExit
+        else:
+            print(Red + 'Invalid input!')
             continue
     while have_guessed:
         # prompting the user to play again
