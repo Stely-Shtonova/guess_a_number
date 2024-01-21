@@ -26,7 +26,7 @@ while True:
         attempts_count += 1
         # checking if the attempts are over the limit
     if attempts_count > 3:
-        print(Purple + 'You lost! You have no more tries left... Would you like to play again?')
+        print(Purple + f'You lost- you have no more tries left. The number was {computers_number}. Would you like to play again?')
         answer = input(Orange + 'Answer with [yes] or [no]: ')
         if answer.lower() == 'yes':
             attempts_count = 0
