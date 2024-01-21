@@ -40,7 +40,7 @@ while True:
     if int(your_guess) == computers_number:
         print(Magenta + 'Congratulations! The computer chose the number ' + \
             Red + str(computers_number) + Magenta + f' and you guessed it on the' + \
-            Red + str(attempts_count) + Magenta + 'try!')
+            Red + str(attempts_count) + Magenta + ' try!')
         have_guessed = True
     else:
         print(Blue + 'Not quite...')
