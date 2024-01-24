@@ -27,7 +27,7 @@ while True:
     # comparing numbers
     if int(your_guess) == computers_number:
         print(Magenta + 'Congratulations! The computer chose the number ' + \
-            Red + str(computers_number) + Magenta + f' and you guessed it on the' + \
+            Red + str(computers_number) + Magenta + f' and you guessed it on the ' + \
             Red + str(attempts_count) + Magenta + ' try!')
         have_guessed = True
     else:
@@ -37,13 +37,14 @@ while True:
             print(Purple + 'Try with a smaller number...')
         elif int(your_guess) < computers_number:
             print(Purple + 'Try with a bigger number...')
-    # checking if the attempts are over the limit
-    while attempts_count == 3:
+    while have_guessed:
         # prompting the user to play again
-        print(Purple + f'You lost- you have no more tries left. The number was {computers_number}. Would you like to play again?')
-        answer = input(Orange + 'Answer with [yes] or [no]: ')
+        print(Blue + 'Would you like to play again?')
+        answer = input(Blue + 'Answer with [yes] or [no]: ')
         if answer.lower() == 'yes':
             attempts_count = 0
+            computers_number = randint(1, 100)
+            have_guessed = False
             break
         elif answer.lower() == 'no':
             print(Blue + 'Thanks for playing...')
@@ -51,13 +52,14 @@ while True:
         else:
             print(Red + 'Invalid input!')
             continue
-    while have_guessed:
+    # checking if the attempts are over the limit
+    while attempts_count == 3:
         # prompting the user to play again
-        print(Blue + 'Would you like to play again?')
-        answer = input(Blue + 'Answer with [yes] or [no]: ')
+        print(Purple + f'You lost- you have no more tries left. The number was {computers_number}. Would you like to play again?')
+        answer = input(Orange + 'Answer with [yes] or [no]: ')
         if answer.lower() == 'yes':
             attempts_count = 0
-            have_guessed = False
+            computers_number = randint(1, 100)
             break
         elif answer.lower() == 'no':
             print(Blue + 'Thanks for playing...')
